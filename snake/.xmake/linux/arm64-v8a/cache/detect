@@ -1,0 +1,408 @@
+{
+    find_program = {
+        ping = "/data/data/com.termux/files/usr/bin/ping",
+        dpkg = "/usr/bin/dpkg",
+        gcc = "/usr/bin/gcc",
+        nim = false,
+        gzip = "/bin/gzip",
+        ["/usr/bin/g++"] = "/usr/bin/g++",
+        unzip = "/data/data/com.termux/files/usr/bin/unzip",
+        tar = "/bin/tar",
+        ccache = false,
+        zig = false,
+        ["/usr/bin/gcc"] = "/usr/bin/gcc",
+        ["pkg-config"] = "/data/data/com.termux/files/usr/bin/pkg-config",
+        git = "/data/data/com.termux/files/usr/bin/git"
+    },
+    ["find_program_cuda_arch_arm64-v8a_plat_linux_checktoolfcld"] = {
+        nvfortran = false
+    },
+    ["find_program_gfortran_arch_arm64-v8a_plat_linux_checktoolfcsh"] = {
+        gfortran = false,
+        g95 = false
+    },
+    ["find_program_rust_arch_arm64-v8a_plat_linux_checktoolrcsh"] = {
+        rustc = false
+    },
+    ["detect.tools.gcc.has_ldflags"] = {
+        ["/usr/bin/g++_13.2.0-4ubuntu3"] = {
+            ["-Bshareable"] = true,
+            ["--no-gc-sections"] = true,
+            ["--pic-executable"] = true,
+            ["-I"] = true,
+            ["--defsym"] = true,
+            ["-A"] = true,
+            ["-plugin-opt"] = true,
+            ["-Y"] = true,
+            ["-f"] = true,
+            ["--dynamic-list-data"] = true,
+            ["--no-demangle"] = true,
+            ["--undefined-version"] = true,
+            ["--no-allow-shlib-undefined"] = true,
+            ["--stats"] = true,
+            ["--warn-execstack"] = true,
+            ["--target1-rel"] = true,
+            ["-Qy"] = true,
+            ["-a"] = true,
+            ["--vfp11-denorm-fix"] = true,
+            ["-F"] = true,
+            ["--help"] = true,
+            ["-V"] = true,
+            ["--print-map-locals"] = true,
+            ["--target1-abs"] = true,
+            ["--fix-v4bx-interworking"] = true,
+            ["--fatal-warnings"] = true,
+            ["--no-as-needed"] = true,
+            ["-y"] = true,
+            ["--no-map-whole-files"] = true,
+            ["--allow-shlib-undefined"] = true,
+            ["--print-memory-usage"] = true,
+            ["--no-dynamic-linker"] = true,
+            ["-Ttext"] = true,
+            ["--long-plt"] = true,
+            ["--dynamic-list"] = true,
+            ["--section-start"] = true,
+            ["-G"] = true,
+            ["--fix-v4bx"] = true,
+            ["--orphan-handling"] = true,
+            ["--print-map"] = true,
+            ["--script"] = true,
+            ["--unique"] = true,
+            ["--relax"] = true,
+            ["-nostdlib"] = true,
+            ["--remap-inputs"] = true,
+            ["--no-check-sections"] = true,
+            ["--gc-sections"] = true,
+            ["--no-define-common"] = true,
+            ["--export-dynamic-symbol"] = true,
+            ["--no-ctf-variables"] = true,
+            ["--pop-state"] = true,
+            ["--enable-non-contiguous-regions"] = true,
+            ["--eh-frame-hdr"] = true,
+            ["--architecture"] = true,
+            ["--demangle"] = true,
+            ["-EB"] = true,
+            ["--gc-keep-exported"] = true,
+            ["--just-symbols"] = true,
+            ["--out-implib"] = true,
+            ["--use-blx"] = true,
+            ["-g"] = true,
+            ["--warn-rwx-segments"] = true,
+            ["-Tdata"] = true,
+            ["-L"] = true,
+            ["-assert"] = true,
+            ["-dp"] = true,
+            ["--split-by-file"] = true,
+            ["--reduce-memory-overheads"] = true,
+            ["--strip-all"] = true,
+            ["-Ttext-segment"] = true,
+            ["--map-whole-files"] = true,
+            ["--print-output-format"] = true,
+            ["--disable-multiple-abs-defs"] = true,
+            ["--push-state"] = true,
+            ["--allow-multiple-definition"] = true,
+            ["-Bsymbolic"] = true,
+            ["--version-exports-section"] = true,
+            ["--dependency-file"] = true,
+            ["--enable-non-contiguous-regions-warnings"] = true,
+            ["-o"] = true,
+            ["-Ur"] = true,
+            ["--sort-common"] = true,
+            ["--enable-new-dtags"] = true,
+            ["--no-accept-unknown-input-arch"] = true,
+            ["-dT"] = true,
+            ["--no-print-map-discarded"] = true,
+            ["--undefined"] = true,
+            ["--mri-script"] = true,
+            ["-e"] = true,
+            ["--cmse-implib"] = true,
+            ["-Tbss"] = true,
+            ["--print-map-discarded"] = true,
+            ["--no-omagic"] = true,
+            ["--no-keep-memory"] = true,
+            ["--dynamic-list-cpp-typeinfo"] = true,
+            ["-Trodata-segment"] = true,
+            ["-m"] = true,
+            ["--fix-cortex-a53-835769"] = true,
+            ["-Map"] = true,
+            ["-b"] = true,
+            ["-Bsymbolic-functions"] = true,
+            ["--cref"] = true,
+            ["--no-export-dynamic"] = true,
+            ["--verbose"] = true,
+            ["--spare-dynamic-tags"] = true,
+            ["-rpath-link"] = true,
+            ["--warn-alternate-em"] = true,
+            ["--be8"] = true,
+            ["--no-eh-frame-hdr"] = true,
+            ["--no-merge-exidx-entries"] = true,
+            ["--no-copy-dt-needed-entries"] = true,
+            ["--warn-multiple-gp"] = true,
+            ["-Bno-symbolic"] = true,
+            ["-z"] = true,
+            ["--print-sysroot"] = true,
+            ["--discard-all"] = true,
+            ["-flto"] = true,
+            ["--omagic"] = true,
+            ["--ignore-unresolved-symbol"] = true,
+            ["--remap-inputs-file"] = true,
+            ["--no-fatal-warnings"] = true,
+            ["--strip-discarded"] = true,
+            ["--trace"] = true,
+            ["-Tldata-segment"] = true,
+            ["--format"] = true,
+            ["--no-warn-mismatch"] = true,
+            ["--wrap"] = true,
+            ["--output"] = true,
+            ["--oformat"] = true,
+            ["--entry"] = true,
+            ["--filter"] = true,
+            ["-rpath"] = true,
+            ["--require-defined"] = true,
+            ["-l"] = true,
+            ["--relocatable"] = true,
+            ["-R"] = true,
+            ["--discard-none"] = true,
+            ["--version"] = true,
+            ["--dynamic-list-cpp-new"] = true,
+            ["--library-path"] = true,
+            ["--no-undefined"] = true,
+            ["-Bgroup"] = true,
+            ["--target-help"] = true,
+            ["--force-exe-suffix"] = true,
+            ["--auxiliary"] = true,
+            ["--no-print-gc-sections"] = true,
+            ["--traditional-format"] = true,
+            ["-O"] = true,
+            ["--start-group"] = true,
+            ["--whole-archive"] = true,
+            ["--split-by-reloc"] = true,
+            ["--enable-linker-version"] = true,
+            ["--no-print-map-locals"] = true,
+            ["--no-warn-execstack"] = true,
+            ["--emit-relocs"] = true,
+            ["--warn-section-align"] = true,
+            ["--print-gc-sections"] = true,
+            ["--disable-new-dtags"] = true,
+            ["--end-group"] = true,
+            ["--dynamic-linker"] = true,
+            ["-EL"] = true,
+            ["--trace-symbol"] = true,
+            ["--gpsize"] = true,
+            ["-init"] = true,
+            ["--warn-common"] = true,
+            ["--accept-unknown-input-arch"] = true,
+            ["--retain-symbols-file"] = true,
+            ["-h"] = true,
+            ["--export-dynamic-symbol-list"] = true,
+            ["--no-warn-search-mismatch"] = true,
+            ["--strip-debug"] = true,
+            ["--task-link"] = true,
+            ["--ctf-variables"] = true,
+            ["-soname"] = true,
+            ["--disable-linker-version"] = true,
+            ["--no-undefined-version"] = true,
+            ["--no-strip-discarded"] = true,
+            ["-static"] = true,
+            ["--no-relax"] = true,
+            ["-T"] = true,
+            ["--no-whole-archive"] = true,
+            ["--copy-dt-needed-entries"] = true,
+            ["--no-enum-size-warning"] = true,
+            ["--no-wchar-size-warning"] = true,
+            ["-plugin"] = true,
+            ["--check-sections"] = true,
+            ["--error-handling-script"] = true,
+            ["--warn-unresolved-symbols"] = true,
+            ["-qmagic"] = true,
+            ["--warn-constructors"] = true,
+            ["--no-warnings"] = true,
+            ["--default-symver"] = true,
+            ["--export-dynamic"] = true,
+            ["--error-unresolved-symbols"] = true,
+            ["-c"] = true,
+            ["-debug"] = true,
+            ["--in-implib"] = true,
+            ["--as-needed"] = true,
+            ["--no-apply-dynamic-relocs"] = true,
+            ["-fini"] = true,
+            ["--no-warn-rwx-segments"] = true,
+            ["--default-script"] = true,
+            ["--fix-stm32l4xx-629360"] = true,
+            ["--discard-locals"] = true,
+            ["-no-pie"] = true,
+            ["--nmagic"] = true,
+            ["--library"] = true,
+            ["--version-script"] = true,
+            ["--sort-section"] = true,
+            ["-u"] = true,
+            ["--warn-textrel"] = true,
+            ["--force-group-allocation"] = true,
+            ["-P"] = true,
+            ["--pic-veneer"] = true,
+            ["--warn-once"] = true,
+            ["--default-imported-symver"] = true
+        }
+    },
+    ["find_program_gfortran_arch_arm64-v8a_plat_linux_checktoolfc"] = {
+        gfortran = false,
+        g95 = false
+    },
+    ["find_program_cuda_arch_arm64-v8a_plat_linux_checktoolfc"] = {
+        nvfortran = false
+    },
+    ["find_program_cuda_arch_arm64-v8a_plat_linux_checktoolfcsh"] = {
+        nvfortran = false
+    },
+    ["find_program_gfortran_arch_arm64-v8a_plat_linux_checktoolfcld"] = {
+        gfortran = false,
+        g95 = false
+    },
+    ["find_program_gcc_arch_arm64-v8a_plat_linux_checktoolar"] = {
+        ar = "/usr/bin/ar"
+    },
+    ["detect.sdks.find_cuda"] = {
+        cuda = false
+    },
+    ["lib.detect.has_flags"] = {
+        ["linux_arm64-v8a_/usr/bin/gcc_13.2.0-4ubuntu3_cxx_cxflags__-fvisibility-inlines-hidden"] = true,
+        ["linux_arm64-v8a_/usr/bin/g++_13.2.0-4ubuntu3_ld___-fPIC"] = true,
+        ["linux_arm64-v8a_/usr/bin/gcc_13.2.0-4ubuntu3_cxx_cxflags__-DNDEBUG"] = true,
+        ["linux_arm64-v8a_/usr/bin/gcc_13.2.0-4ubuntu3_cxx___-O3"] = true,
+        ["linux_arm64-v8a_/usr/bin/gcc_13.2.0-4ubuntu3_cxx___-fPIC"] = true
+    },
+    ["find_program_fpc_arch_arm64-v8a_plat_linux_checktoolpc"] = {
+        fpc = false
+    },
+    ["find_program_cuda_arch_arm64-v8a_plat_linux_checktoolculd"] = {
+        nvcc = false
+    },
+    ["find_program_gcc_arch_arm64-v8a_plat_linux_checktoolcc"] = {
+        gcc = "/usr/bin/gcc"
+    },
+    ["find_program_gcc_arch_arm64-v8a_plat_linux_checktoolmm"] = {
+        gcc = "/usr/bin/gcc"
+    },
+    ["find_package_linux_arm64-v8a_fetch_package_system"] = {
+        ["apt::libncurses-dev_9dc929c94d7c481184da0ef71b254e08_release_external"] = {
+            linkdirs = {
+                "/usr/lib/aarch64-linux-gnu"
+            },
+            links = {
+                "form",
+                "formw",
+                "menu",
+                "menuw",
+                "ncurses++",
+                "ncurses++w",
+                "ncurses",
+                "ncursesw",
+                "panel",
+                "panelw",
+                "tic",
+                "tinfo"
+            },
+            version = "6.4.20230625",
+            sysincludedirs = { }
+        }
+    },
+    ["find_program_rust_arch_arm64-v8a_plat_linux_checktoolrcar"] = {
+        rustc = false
+    },
+    ["find_program_gcc_arch_arm64-v8a_plat_linux_checktoolsh"] = {
+        ["g++"] = "/usr/bin/g++"
+    },
+    ["find_program_cuda_arch_arm64-v8a_plat_linux_checktoolcu"] = {
+        nvcc = false,
+        clang = "/data/data/com.termux/files/usr/bin/clang"
+    },
+    ["find_package_linux_arm64-v8a_fetch_package_xmake"] = {
+        ["xmake::ncurses_9dc929c94d7c481184da0ef71b254e08_release_6.4_external"] = false
+    },
+    ["find_program_go_arch_arm64-v8a_plat_linux_checktoolgcld"] = {
+        gccgo = false,
+        go = false
+    },
+    ["find_program_gcc_arch_arm64-v8a_plat_linux_checktoolcxx"] = {
+        gcc = "/usr/bin/gcc"
+    },
+    ["find_program_swift_arch_arm64-v8a_plat_linux_checktoolscsh"] = {
+        swiftc = false
+    },
+    find_programver = {
+        ["/usr/bin/g++"] = "13.2.0-4ubuntu3",
+        ["/usr/bin/gcc"] = "13.2.0-4ubuntu3"
+    },
+    ["find_program_swift_arch_arm64-v8a_plat_linux_checktoolscld"] = {
+        swiftc = false
+    },
+    ["find_program_rust_arch_arm64-v8a_plat_linux_checktoolrc"] = {
+        rustc = false
+    },
+    ["find_program_swift_arch_arm64-v8a_plat_linux_checktoolsc"] = {
+        ["swift-frontend"] = false,
+        swiftc = false
+    },
+    ["find_program_fpc_arch_arm64-v8a_plat_linux_checktoolpcld"] = {
+        fpc = false
+    },
+    ["find_program_gcc_arch_arm64-v8a_plat_linux_checktoolld"] = {
+        ["g++"] = "/usr/bin/g++"
+    },
+    ["find_program_go_arch_arm64-v8a_plat_linux_checktoolgcar"] = {
+        gccgo = false,
+        go = false
+    },
+    ["detect.tools.gcc.has_cflags"] = {
+        ["/usr/bin/gcc_13.2.0-4ubuntu3"] = {
+            ["-pipe"] = true,
+            ["-dumpversion"] = true,
+            ["-print-search-dirs"] = true,
+            ["-B"] = true,
+            ["-Xlinker"] = true,
+            ["--help"] = true,
+            ["-Xassembler"] = true,
+            ["-pie"] = true,
+            ["-print-multi-directory"] = true,
+            ["-Xpreprocessor"] = true,
+            ["-dumpmachine"] = true,
+            ["-pass-exit-codes"] = true,
+            ["-print-multiarch"] = true,
+            ["-shared"] = true,
+            ["-S"] = true,
+            ["-dumpspecs"] = true,
+            ["-v"] = true,
+            ["-print-multi-lib"] = true,
+            ["-x"] = true,
+            ["-print-libgcc-file-name"] = true,
+            ["-print-sysroot-headers-suffix"] = true,
+            ["-time"] = true,
+            ["-print-multi-os-directory"] = true,
+            ["-o"] = true,
+            ["-save-temps"] = true,
+            ["--target-help"] = true,
+            ["--version"] = true,
+            ["--param"] = true,
+            ["-c"] = true,
+            ["-no-canonical-prefixes"] = true,
+            ["-print-sysroot"] = true,
+            ["-E"] = true
+        }
+    },
+    ["find_program_go_arch_arm64-v8a_plat_linux_checktoolgc"] = {
+        gccgo = false,
+        go = false
+    },
+    ["find_program_fpc_arch_arm64-v8a_plat_linux_checktoolpcsh"] = {
+        fpc = false
+    },
+    ["find_program_gcc_arch_arm64-v8a_plat_linux_checktoolas"] = {
+        gcc = "/usr/bin/gcc"
+    },
+    ["find_program_gcc_arch_arm64-v8a_plat_linux_checktoolmxx"] = {
+        gcc = "/usr/bin/gcc"
+    },
+    ["find_program_rust_arch_arm64-v8a_plat_linux_checktoolrcld"] = {
+        rustc = false
+    }
+}

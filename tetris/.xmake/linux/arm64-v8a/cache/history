@@ -1,0 +1,11 @@
+{
+    cmdlines = {
+        "xmake run",
+        "xmake project -k compile_commands cmake",
+        "xmake project -k compile_commands",
+        "xmake project -k cmake",
+        "xmake project",
+        "xmake ",
+        "xmake run"
+    }
+}

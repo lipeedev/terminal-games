@@ -1,0 +1,7 @@
+{
+    cmdlines = {
+        "xmake lua /home/leep/.local/share/xmake/modules/private/utils/statistics.lua",
+        "xmake run",
+        "xmake project"
+    }
+}
