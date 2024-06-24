@@ -1,8 +1,6 @@
-#include <chrono>
 #include <cstdlib>
 #include <ctime>
 #include <ncurses.h>
-#include <thread>
 #include <vector>
 
 const int BOARD_WIDTH = 20;
@@ -30,10 +28,17 @@ void drawBoard(const std::vector<std::vector<int>> &board) {
   for (int y{}; y < BOARD_HEIGHT; ++y) {
     for (int x{}; x < BOARD_WIDTH; ++x) {
       if (board[y][x] == 1) {
+
+        attron(A_BOLD);
         mvprintw(y, x * 2 + MARGIN, "[]");
+        attroff(A_BOLD);
       } else if (y == 0 || y == BOARD_HEIGHT - 1 || x == 0 ||
                  x == BOARD_WIDTH - 1) {
+        attron(A_BOLD);
         mvprintw(y, x * 2 + MARGIN, "*");
+        attroff(A_BOLD);
+      } else {
+        mvprintw(y, x * 2 + MARGIN, ".");
       }
     }
   }
@@ -134,9 +139,8 @@ int main() {
   std::vector<std::vector<int>> board(BOARD_HEIGHT,
                                       std::vector<int>(BOARD_WIDTH, 0));
 
-  int y = 3, x = 5, speed = 150, score = 0;
-  ;
   srand(time(nullptr));
+  int y = 0, x = 5, speed = 150, score = 0;
   bool canShowNextTetrimino = false;
   auto tetrimino = tetriminos[rand() % tetriminos.size()];
 
@@ -153,6 +157,15 @@ int main() {
 
     if (canPlaceTetrimino(tetrimino, board, y + 1, x)) {
       ++y;
+    } else if (y == 0) {
+      attron(A_REVERSE);
+      mvprintw(LINES / 2, (COLS / 2) - 4, "GAME OVER");
+      attroff(A_REVERSE);
+      refresh();
+      nodelay(stdscr, false);
+      getch();
+      printf("Your last score was: %d", score);
+      break;
     } else {
       canShowNextTetrimino = true;
     }
@@ -193,7 +206,7 @@ int main() {
     removeCompletedLines(board, score);
 
     if (canShowNextTetrimino) {
-      y = 3, x = 5;
+      y = 0, x = 5;
       canShowNextTetrimino = false;
       speed = 150;
       tetrimino = tetriminos[rand() % tetriminos.size()];
