@@ -1,6 +1,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <ncurses.h>
+#include <unistd.h>
 #include <vector>
 
 const int BOARD_WIDTH = 20;
@@ -22,35 +23,51 @@ const std::vector<std::vector<std::vector<int>>> tetriminos = {
     // T
     {{1, 0, 0, 0}, {1, 1, 0, 0}, {1, 0, 0, 0}, {0, 0, 0, 0}}};
 
-void drawBoard(const std::vector<std::vector<int>> &board) {
+void setupColors() {
+  start_color();
+
+  init_pair(1, COLOR_RED, COLOR_BLACK);
+  init_pair(2, COLOR_GREEN, COLOR_BLACK);
+  init_pair(3, COLOR_YELLOW, COLOR_BLACK);
+  init_pair(4, COLOR_BLUE, COLOR_BLACK);
+  init_pair(5, COLOR_MAGENTA, COLOR_BLACK);
+  init_pair(6, COLOR_CYAN, COLOR_BLACK);
+  init_pair(7, COLOR_RED, COLOR_BLACK);
+}
+
+void drawBoard(const std::vector<std::vector<int>> &board,
+               const std::vector<std::vector<int>> &colorizedBoard) {
   const unsigned int MARGIN = 2;
 
   for (int y{}; y < BOARD_HEIGHT; ++y) {
     for (int x{}; x < BOARD_WIDTH; ++x) {
       if (board[y][x] == 1) {
 
-        attron(A_BOLD);
+        attron(COLOR_PAIR(colorizedBoard[y][x]));
         mvprintw(y, x * 2 + MARGIN, "[]");
-        attroff(A_BOLD);
+        attroff(COLOR_PAIR(colorizedBoard[y][x]));
       } else if (y == 0 || y == BOARD_HEIGHT - 1 || x == 0 ||
                  x == BOARD_WIDTH - 1) {
         attron(A_BOLD);
         mvprintw(y, x * 2 + MARGIN, "*");
         attroff(A_BOLD);
       } else {
-        mvprintw(y, x * 2 + MARGIN, ".");
+        mvprintw(y, x * 2 + MARGIN, "  ");
       }
     }
   }
 }
 
 void placeTetrimino(const std::vector<std::vector<int>> &tetrimino,
-                    std::vector<std::vector<int>> &board, int y, int x) {
+                    std::vector<std::vector<int>> &board, int y, int x,
+                    std::vector<std::vector<int>> &colorizedBoard,
+                    int &colorType) {
 
   for (int dy{}; dy < 4; ++dy) {
     for (int dx{}; dx < 4; ++dx) {
       if (tetrimino[dy][dx] == 1) {
         board[y + dy][x + dx] = 1;
+        colorizedBoard[y + dy][x + dx] = colorType;
       }
     }
   }
@@ -104,7 +121,8 @@ void rotateTetromino(std::vector<std::vector<int>> &tetrimino) {
   }
 }
 
-void removeCompletedLines(std::vector<std::vector<int>> &board, int &score) {
+void removeCompletedLines(std::vector<std::vector<int>> &board, int &score,
+                          std::vector<std::vector<int>> &colorizedBoard) {
   for (int y = BOARD_HEIGHT - 2; y > 0; --y) {
     bool isLineComplete = true;
     for (int x = 1; x < BOARD_WIDTH - 1; ++x) {
@@ -120,6 +138,9 @@ void removeCompletedLines(std::vector<std::vector<int>> &board, int &score) {
         }
       }
       for (int j = 1; j < BOARD_WIDTH - 1; ++j) {
+        colorizedBoard[0][j] = colorizedBoard[y][j];
+        colorizedBoard[0][j] = 7;
+
         board[0][j] = 0;
       }
       ++y;
@@ -136,18 +157,22 @@ int main() {
   keypad(stdscr, true);
   nodelay(stdscr, true);
 
+  setupColors();
+
   std::vector<std::vector<int>> board(BOARD_HEIGHT,
-                                      std::vector<int>(BOARD_WIDTH, 0));
+                                      std::vector<int>(BOARD_WIDTH, 0)),
+      colorizedBoard(BOARD_HEIGHT, std::vector<int>(BOARD_WIDTH, 0));
 
   srand(time(nullptr));
-  int y = 0, x = 5, speed = 150, score = 0;
+  int y = 0, x = 5, speed = 200, score = 0;
   bool canShowNextTetrimino = false;
-  auto tetrimino = tetriminos[rand() % tetriminos.size()];
+
+  int tetriminoRandom = rand() % tetriminos.size();
+  auto tetrimino = tetriminos[tetriminoRandom];
 
   while (true) {
-
     clear();
-    drawBoard(board);
+    drawBoard(board, colorizedBoard);
     attron(A_REVERSE);
     mvprintw(LINES - 1, 0, "Score: %d", score);
     attroff(A_REVERSE);
@@ -170,8 +195,8 @@ int main() {
       canShowNextTetrimino = true;
     }
 
-    placeTetrimino(tetrimino, board, y, x);
-    removeCompletedLines(board, score);
+    placeTetrimino(tetrimino, board, y, x, colorizedBoard, tetriminoRandom);
+    removeCompletedLines(board, score, colorizedBoard);
 
     int ch = getch();
 
@@ -202,14 +227,15 @@ int main() {
     case KEY_DOWN:
       speed = 50;
     }
-    placeTetrimino(tetrimino, board, y, x);
-    removeCompletedLines(board, score);
+    placeTetrimino(tetrimino, board, y, x, colorizedBoard, tetriminoRandom);
+    removeCompletedLines(board, score, colorizedBoard);
 
     if (canShowNextTetrimino) {
       y = 0, x = 5;
       canShowNextTetrimino = false;
-      speed = 150;
-      tetrimino = tetriminos[rand() % tetriminos.size()];
+      speed = 200;
+      tetriminoRandom = rand() % tetriminos.size();
+      tetrimino = tetriminos[tetriminoRandom];
     }
   }
 
